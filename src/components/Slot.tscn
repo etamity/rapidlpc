@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbqn7x0acl45j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbgu8"]
+bg_color = Color(0.366594, 0.366595, 0.366595, 0.666667)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ychr0"]
+bg_color = Color(0.266575, 0.266575, 0.266575, 1)
+
+[node name="Slot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 32.0
+offset_bottom = 32.0
+focus_mode = 0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dbgu8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ychr0")
+toggle_mode = true

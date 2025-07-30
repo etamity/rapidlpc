@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv4pqxxweis2c"]
+
+[ext_resource type="Script" uid="uid://oo4go5i61bj7" path="res://src/Main.ts" id="1_chrbn"]
+[ext_resource type="PackedScene" uid="uid://o8ss087d3geh" path="res://src/components/Charactor.tscn" id="2_hk4rc"]
+[ext_resource type="Script" uid="uid://c4xgs5d5kdrso" path="res://src/utils/Store.ts" id="3_5qjmp"]
+[ext_resource type="PackedScene" uid="uid://dbqn7x0acl45j" path="res://src/components/Slot.tscn" id="4_5qjmp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjwby"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.902966, 0.781011, 0.593763, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chrbn")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 230.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+tab_focus_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 76.0
+offset_right = 32.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Charactor" parent="CenterContainer" instance=ExtResource("2_hk4rc")]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 231.0
+offset_right = 107.0
+offset_bottom = 262.0
+focus_mode = 0
+selected = 0
+item_count = 6
+popup/item_0/text = "Male"
+popup/item_0/id = 0
+popup/item_1/text = "Female"
+popup/item_1/id = 1
+popup/item_2/text = "Teen"
+popup/item_2/id = 2
+popup/item_3/text = "Child"
+popup/item_3/id = 3
+popup/item_4/text = "Pregnant"
+popup/item_4/id = 4
+popup/item_5/text = "Muscular"
+popup/item_5/id = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 911.0
+offset_top = 229.0
+offset_right = 1149.0
+offset_bottom = 643.0
+
+[node name="Store" type="Node" parent="."]
+script = ExtResource("3_5qjmp")
+
+[node name="GenerateButton" parent="." instance=ExtResource("4_5qjmp")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 111.0
+offset_top = 230.0
+offset_right = 202.0
+offset_bottom = 263.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vjwby")
+toggle_mode = false
+text = "Random
+"
+
+[node name="OpenFolderButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 231.0
+offset_right = 454.0
+offset_bottom = 262.0
+focus_mode = 0
+text = "Open Spritesheets Folder"
+
+[node name="ExportButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 231.0
+offset_right = 639.0
+offset_bottom = 262.0
+focus_mode = 0
+text = "Export By Animations"
+
+[node name="ExportSingleSpriteSheetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 231.0
+offset_right = 863.0
+offset_bottom = 262.0
+focus_mode = 0
+text = "Export Single Spritesheets
+"
+
+[node name="SpritesheetsFileDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="SaveLoadFileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+access = 2
+filters = PackedStringArray("*.json")
+
+[node name="ExportFileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="HelpLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -216.0
+offset_right = 211.0
+grow_vertical = 0
+text = "Walk:  ⇧ ⇩  ⇦  ⇨
+Run:  SHIFT + ⇧ ⇩  ⇦  ⇨
+Jump: SPACE
+Slash:  F
+Shoot:  Z
+Thrust:  X
+Hurt:  C
+Wheelchair:  V
+Custom Animation:  B"
+
+[node name="SaveCharacter" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -15.5
+offset_right = 130.0
+offset_bottom = 15.5
+grow_vertical = 2
+focus_mode = 0
+text = "Save Character
+"
+
+[node name="LoadCharacter" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.562
+anchor_bottom = 0.562
+offset_left = 5.0
+offset_top = 0.323975
+offset_right = 131.0
+offset_bottom = 31.324
+grow_vertical = 2
+focus_mode = 0
+text = "Load Character
+"
+
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="OpenFolderButton" to="." method="_on_open_spritesheets_folder_pressed"]
+[connection signal="pressed" from="ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="ExportSingleSpriteSheetButton" to="." method="_on_export_single_sprite_sheet_button_pressed"]
+[connection signal="pressed" from="SaveCharacter" to="." method="_on_save_character_pressed"]
+[connection signal="pressed" from="LoadCharacter" to="." method="_on_load_character_pressed"]

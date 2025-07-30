@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyck2emx17al2"]
+
+[ext_resource type="Script" uid="uid://xlofrvwpnncx" path="res://src/components/SelectPanel.ts" id="1_k5nvm"]
+[ext_resource type="Texture2D" uid="uid://cuww77yaqe5jr" path="res://assets/items.png" id="2_jcax3"]
+[ext_resource type="PackedScene" uid="uid://dbqn7x0acl45j" path="res://src/components/Slot.tscn" id="3_ow3ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bglsa"]
+atlas = ExtResource("2_jcax3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npwa0"]
+texture = SubResource("AtlasTexture_bglsa")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bi4gl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.902966, 0.781011, 0.593763, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ow3ct"]
+allow_unpress = true
+
+[node name="SelectPanel" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 199.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_npwa0")
+script = ExtResource("1_k5nvm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Body"
+
+[node name="BackButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_ow3ct")]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bi4gl")
+button_group = SubResource("ButtonGroup_ow3ct")
+text = "<"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+columns = 16
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SecondaryGridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+columns = 16

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://o8ss087d3geh"]
+
+[ext_resource type="Script" uid="uid://ddwigv20fw4b0" path="res://src/components/Charactor.ts" id="1_jfb87"]
+
+[node name="Charactor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_jfb87")
+metadata/_edit_use_anchors_ = true

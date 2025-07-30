@@ -1,0 +1,25 @@
+{
+  "name": "rapidlpc",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm-run-all build -p watch open-editor",
+    "open-editor": "godot -e --path .",
+    "start": "npm run build && godot",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "@types/lodash.get": "^4.4.9",
+    "@types/lodash.set": "^4.3.9",
+    "@types/node": "^22.7.3",
+    "nodemon": "3.1.10",
+    "npm-run-all2": "8.0.1",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "deepmerge-ts": "^7.1.5",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
+  }
+}

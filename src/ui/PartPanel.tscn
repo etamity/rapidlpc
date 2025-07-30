@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ims75gci6kx"]
+
+[ext_resource type="PackedScene" uid="uid://cyck2emx17al2" path="res://src/components/SelectPanel.tscn" id="1_bx0h4"]
+[ext_resource type="Script" uid="uid://cn1yj7p0n57yq" path="res://src/ui/PartPanel.ts" id="1_ditth"]
+
+[node name="PartSelector" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 199.0
+grow_horizontal = 2
+script = ExtResource("1_ditth")
+
+[node name="SelectPanel" parent="." instance=ExtResource("1_bx0h4")]
+layout_mode = 2
