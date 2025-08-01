@@ -14,19 +14,15 @@ import {
   FileAccess,
   Rect2i,
   Vector2i,
-  Node2D,
   Color,
 } from 'godot';
 
 import {
   customAnimations,
-  customAnimationSize,
   DEFAULT_REPLACE_PATH,
   getCachedAnimationName,
   animationFrameCounts,
   universalFrameSize,
-  universalSheetHeight,
-  universalSheetWidth,
 } from './Constants';
 import { BODY_TYPE, Direction, PartProps } from '../types/types';
 import { getSpriteRect } from './LPCSpriteSheet';
